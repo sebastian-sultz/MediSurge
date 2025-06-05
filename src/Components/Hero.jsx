@@ -25,7 +25,7 @@ const Hero = () => {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-2xl">
               Precision Surgical Goods <br className="hidden sm:inline" />
-              For <span className="text-accent">Modern Healthcare</span>
+              By <span className="text-accent">MediSurge</span>
             </h1>
 
             {/* Description */}

@@ -88,7 +88,7 @@ const AboutUs = () => {
   return (
     <div className="bg-background font-inter">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-surface to-background px-4 sm:px-6 md:px-12 lg:px-20 py-24">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-surface to-background px-4 sm:px-6 md:px-12 lg:px-20 py-24">
         <div className="absolute inset-0 z-0">
           <img
             src={aboutData.hero.image}
@@ -103,7 +103,7 @@ const AboutUs = () => {
           <div className="mb-8 space-y-6">
             <div className="overflow-hidden">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-text mb-4 leading-tight">
-                <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                <span className="inline-block py-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                   {aboutData.hero.title}
                 </span>
               </h1>
