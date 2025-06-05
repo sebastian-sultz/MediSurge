@@ -68,7 +68,7 @@ MediSurge/
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/MediSurge.git
+git clone https://github.com/sebastian-sultz/MediSurge.git
 cd MediSurge
 npm install
 npm run dev
