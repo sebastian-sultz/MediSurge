@@ -1,103 +1,97 @@
-# 🏥 MedSupply — Modern Medical Supply Web App
+# 🏥 MediSurge — Modern Medical Supply Web App
 
-**MedSupply** is a responsive React-based website tailored for the medical supply industry. Built with Tailwind CSS and Flowbite, this project emphasizes clean UI, professional aesthetics, and modular structure — ideal for hospitals, clinics, pharmacies, and distributors.
+**MediSurge** is a professional, responsive React web application crafted for the medical supply industry. Built with **Vite**, **Tailwind CSS**, and **Flowbite**, it ensures performance, modern UI/UX, and a modular structure ideal for hospitals, clinics, pharmacies, and distributors.
 
 ---
 
-## 🔧 Tech Stack
+## 🛠️ Tech Stack
 
-- **React (Vite)**
-- **Tailwind CSS**
-- **Flowbite (Tailwind UI Components)**
-- **React Router DOM**
-- **React Icons**
-- **JSON-based Data Structure**
-
+- ⚛️ React (Vite)
+- 💨 Tailwind CSS
+- 💡 Flowbite UI Components
+- 🔁 React Router DOM
+- 🎨 React Icons
+- 📁 JSON-based dynamic content
+- 
 ---
 
 ## 🚀 Features
 
-- 🏥 Beautiful hero and landing sections  
-- 👨‍⚕️ Leadership team showcase via JSON  
-- 💬 Client testimonials section  
-- 📞 Contact and footer content via dynamic JSON  
-- 📜 Quick links & policy pages  
-- ❌ Custom creative error page  
-- 🎨 Fully responsive and mobile-friendly layout  
-- ⚡ Fast load times and clean code structure  
+- ✨ Clean hero & landing sections
+- 👨‍⚕️ Dynamic leadership/team section (from JSON)
+- 🧾 Client testimonials (driven by JSON)
+- 📫 Contact & footer data modularized
+- ❌ Custom creative error page
+- 🧩 Modular reusable components
+- 📱 Fully responsive design
+- ⚡ Blazing fast Vite dev server
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-medsupply/
+MediSurge/
+├── node_modules/
 ├── public/
+├── services/               # API and service handlers
 ├── src/
-│   ├── assets/              # Images, logos
-│   ├── components/          # UI components (Footer, Team, Testimonials, etc.)
-│   ├── pages/               # Page components like Home, About, Contact
-│   ├── Data/                # JSON files: teamData.json, footerData.json, testimonialData.json
-│   ├── App.jsx              # Main app with routing
-│   ├── main.jsx             # React root
-│   └── index.css            # Tailwind base styles
-├── tailwind.config.js       # Tailwind customization
+│   ├── assets/
+│   │   └── Images/         # Project media files
+│   ├── Components/         # UI components (Team, Footer, Testimonials, etc.)
+│   ├── constants/          # Constant values or configs
+│   ├── Data/               # JSON files for dynamic content (team, testimonials, footer)
+│   ├── App.css
+│   ├── App.jsx             # Main application component
+│   ├── index.css           # Tailwind & global styles
+│   ├── main.jsx            # ReactDOM entry
+│   ├── UserContext.jsx     # Context API setup
+│   └── utils.js            # Utility functions
+├── .gitignore
+├── .hintrc
+├── eslint.config.js
+├── index.html
 ├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── tailwind.config.js
+├── vercel.json             # Vercel deployment config
+├── vite.config.js          # Vite project config
 └── README.md
 ```
 
 ---
 
-## 📦 Installation
+## 📦 Getting Started
 
-Clone the repository and install dependencies:
+### 🔧 Installation
+
+Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/medsupply.git
-cd medsupply
+git clone https://github.com/yourusername/MediSurge.git
+cd MediSurge
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser to preview the app.
 
 ---
 
 ## ✏️ Customization
 
-- 🎨 Customize theme colors in `tailwind.config.js` under `theme.extend.colors`
-- 🧩 Update data via JSON files inside `src/Data/`
-- ⚙️ Reuse modular components and layouts across pages
-
----
-
-## 🌐 Deployment
-
-This project can be deployed on:
-
-- **Vercel**
-- **Netlify**
-- **GitHub Pages** (with proper Vite config)
-
-### Example (Vercel):
-
-```bash
-npm run build
-vercel --prod
-```
+- 🎨 **Colors**: Update in `tailwind.config.js` under `theme.extend.colors`
+- 🧩 **Team / Testimonials / Footer**: Edit corresponding JSON files in `src/Data/`
+- 🖼 **Images**: Place in `src/assets/Images/`
+- 🧠 **User context logic**: Modify in `src/UserContext.jsx`
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests are welcome!  
-Feel free to fork the repo and submit improvements.
-
----
-
-## 📃 License
-
-Licensed under the **MIT License** — feel free to use and modify.
+Contributions are welcome!  
+Fork the repository, create a branch, make your changes, and submit a pull request.
 
 ---
 
