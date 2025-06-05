@@ -2,6 +2,7 @@
 import { FaHeartbeat, FaBoxOpen } from "react-icons/fa";
 import { MdLocalHospital } from "react-icons/md";
 import { FaGooglePlay, FaApple } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -57,11 +58,11 @@ const Hero = () => {
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
               </button>
-              <button
+              <Link to="/contact"
                 className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-sterile/40 text-sterile font-semibold rounded-full hover:bg-sterile/10 hover:border-sterile/60 hover:shadow-md transition-all text-sm md:text-base w-full sm:w-auto"
               >
                 Connect With Sales
-              </button>
+              </Link>
             </div>
           </div>
 
