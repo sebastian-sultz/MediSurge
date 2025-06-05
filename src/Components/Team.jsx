@@ -1,8 +1,9 @@
 const Team=()=>{
       const teamMembers = [
-        { name: 'Dr. Robert Chen', role: 'Founder & CEO', image: 'https://res.cloudinary.com/djjmj40t9/image/upload/f_auto,q_auto,dpr_auto/v1738956464/team1.jpg', bio: 'Leading with 20+ years of experience in medical supply chain management.' },
-        { name: 'Sarah Johnson', role: 'Head of Operations', image: 'https://res.cloudinary.com/djjmj40t9/image/upload/f_auto,q_auto,dpr_auto/v1738956464/team2.jpg', bio: 'Ensuring seamless logistics and distribution nationwide.' },
-        { name: 'Michael Patel', role: 'Sales Director', image: 'https://res.cloudinary.com/djjmj40t9/image/upload/f_auto,q_auto,dpr_auto/v1738956464/team3.jpg', bio: 'Building strong relationships with healthcare providers.' },
+        { name: 'Dr. Robert Chen', role: 'Founder & CEO', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop', bio: 'Leading with 20+ years of experience in medical supply chain management.' },
+        { name: 'Sarah Johnson', role: 'Head of Operations', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop', bio: 'Ensuring seamless logistics and distribution nationwide.' },
+        { name: 'Michael Patel', role: 'Sales Director',     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop', 
+ bio: 'Building strong relationships with healthcare providers.' },
       ];
     return(
 <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-16">
@@ -17,7 +18,7 @@ const Team=()=>{
                   alt={member.name}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-text">{member.name}</h3>
               <p className="text-secondary font-medium mb-2 text-sm md:text-base">{member.role}</p>

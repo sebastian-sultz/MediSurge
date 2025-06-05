@@ -2,27 +2,41 @@
 
 import Header from "./Components/Header"
 import { Outlet } from 'react-router-dom'
-
+import { useEffect } from "react";
 import './App.css';
 import { UserProvider } from './UserContext';
 import Footer from "./Components/Footer";
-
+import ScrollToTop from "./Components/ScrollToTop";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function App() {
+
+ 
+
+
+useEffect(() => {
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out-quad',
+    once: false, 
+    mirror: true, 
+    offset: 120, 
+    anchorPlacement: 'top-center', 
+  });
+}, []);
 
   return (
 
 
-    <div className='bg-bgcolor'>
+   
       <div className="App">
         <UserProvider>
-
+<ScrollToTop/>
           <Header />
-          {/* <div className="text-gray-500 bg-bgcolor max-w-md mx-auto px-10 overflow-hidden md:max-w-4xl lg:max-w-6xl"> */}
             <Outlet />
           <Footer/>
-          {/* </div> */}
         </UserProvider>
-      </div>
+   
 
     </div>
   )

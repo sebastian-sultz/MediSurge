@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 
 const AboutUs = () => {
-
-
   const timelineRef = useRef(null);
 
   useEffect(() => {
@@ -20,7 +18,7 @@ const AboutUs = () => {
         const scrollPosition = window.scrollY + window.innerHeight * 0.6;
 
         const progress = Math.min(Math.max((scrollPosition - timelineStart) / (timelineEnd - timelineStart), 0), 1);
-        
+
         if (line) {
           line.style.transform = `scaleY(${progress})`;
         }
@@ -91,29 +89,29 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-fit mx-auto">
-  <a
-    href="#our-journey"
-    className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-primary to-secondary text-background font-semibold rounded-full hover:shadow-lg transition-all group relative overflow-hidden w-full sm:w-auto"
-  >
-    <span className="relative z-10 flex items-center text-sm sm:text-base">
-      Our Story
-      <svg
-        className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M14 5l7 7m0 0l-7 7m7-7H3"
-        ></path>
-      </svg>
-    </span>
-    <span className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
-  </a>
-</div>
+            <a
+              href="#our-journey"
+              className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-primary to-secondary text-background font-semibold rounded-full hover:shadow-lg transition-all group relative overflow-hidden w-full sm:w-auto"
+            >
+              <span className="relative z-10 flex items-center text-sm sm:text-base">
+                Our Story
+                <svg
+                  className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            </a>
+          </div>
         </div>
 
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30">
@@ -150,8 +148,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-
-    
 
       {/* Values Section */}
       <div className="bg-background py-16">
@@ -264,35 +260,100 @@ const AboutUs = () => {
       </section>
 
       {/* Timeline Section */}
-      <div id="our-journey" className="py-16 bg-gradient-to-br from-surface to-background" ref={timelineRef}>
-        <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-text text-center mb-12">Our Growth Journey</h2>
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-4 sm:left-1/2 h-full w-0.5 bg-border sm:transform sm:-translate-x-1/2">
-              <div className="absolute top-0 left-0 w-full h-full origin-top bg-secondary scale-y-0 timeline-progress transition-transform duration-500"></div>
+      <div id="our-journey" className="py-16 md:py-24 bg-gradient-to-br from-surface to-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 md:mb-20" data-aos="fade-down" data-aos-duration="800">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text mb-4">
+              Our Growth Journey
+            </h2>
+            <p className="text-lg md:text-xl text-textSecondary max-w-2xl mx-auto">
+              Milestones that shaped our company's success story
+            </p>
+          </div>
+
+          <div className="relative max-w-5xl mx-auto" ref={timelineRef}>
+            {/* Timeline line */}
+            <div className="absolute left-4 sm:left-1/2 h-full w-1 bg-border/30 sm:transform sm:-translate-x-1/2">
+              <div 
+                className="timeline-progress absolute top-0 left-0 w-full h-full origin-top bg-secondary scale-y-0"
+              ></div>
             </div>
             
-            <div className="space-y-12 ml-8 sm:ml-0">
+            <div className="space-y-16 ml-12 sm:ml-0">
               {[
-                { year: "2010", content: "Founded as a regional medical supplier in Chicago.", side: "left" },
-                { year: "2014", content: "Expanded to serve the entire Midwest region.", side: "right" },
-                { year: "2017", content: "Launched our e-commerce platform for healthcare providers.", side: "left" },
-                { year: "2020", content: "Achieved nationwide distribution capabilities.", side: "right" },
-                { year: "2023", content: "Opened two new distribution centers on East and West coasts.", side: "left" },
+                { 
+                  year: "2010", 
+                  content: "Founded as a regional medical supplier in Chicago.",
+                  side: "left",
+                  icon: "🏥",
+                  animation: "fade-right"
+                },
+                { 
+                  year: "2014", 
+                  content: "Expanded to serve the entire Midwest region.",
+                  side: "right",
+                  icon: "🗺️",
+                  animation: "fade-left"
+                },
+                { 
+                  year: "2017", 
+                  content: "Launched our e-commerce platform for healthcare providers.",
+                  side: "left",
+                  icon: "🛒",
+                  animation: "fade-right"
+                },
+                { 
+                  year: "2020", 
+                  content: "Achieved nationwide distribution capabilities.",
+                  side: "right",
+                  icon: "🇺🇸",
+                  animation: "fade-left"
+                },
+                { 
+                  year: "2023", 
+                  content: "Opened two new distribution centers on East and West coasts.",
+                  side: "left",
+                  icon: "🏗️",
+                  animation: "fade-right"
+                },
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`timeline-entry relative flex ${item.side === 'left' ? 'sm:justify-end sm:pr-8 md:pr-16' : 'sm:justify-start sm:pl-8 md:pl-16'}`}
+                  className={`timeline-entry relative flex ${window.innerWidth < 640 ? 'justify-start' : item.side === 'left' ? 'sm:justify-end sm:pr-10 lg:pr-16' : 'sm:justify-start sm:pl-10 lg:pl-16'}`}
+                  data-aos={window.innerWidth < 640 ? 'fade-right' : item.animation}
+                  data-aos-delay={index * 150}
+                  data-aos-duration="800"
+                  data-aos-once="false"
+                  data-aos-anchor-placement="top-center"
                 >
-                  <div className={`w-full sm:w-5/6 md:w-1/2 ${item.side === 'left' ? 'sm:text-right' : 'sm:text-left'}`}>
-                    <div className="relative">
-                      <div className="absolute top-4 -left-9 sm:left-auto sm:-right-9 w-4 h-4 bg-secondary rounded-full transform -translate-y-1/2 z-10"></div>
-                      <h3 className="timeline-year text-xl md:text-2xl font-bold text-text mb-2 transition-all duration-300">
-                        {item.year}
-                      </h3>
-                      <p className={`timeline-content text-sm md:text-base text-textSecondary transition-all duration-500 ${item.side === 'left' ? 'sm:translate-x-4' : 'sm:-translate-x-4'} opacity-0 ml-2 sm:ml-0`}>
-                        {item.content}
-                      </p>
+                  <div className={`w-full sm:w-5/6 lg:w-1/2 ${item.side === 'left' ? 'sm:text-right' : 'sm:text-left'}`}>
+                    <div className="relative group">
+                      {/* Year marker */}
+                      <div 
+                        className={`timeline-year absolute top-5 ${window.innerWidth < 640 ? '-left-12' : item.side === 'left' ? 'sm:left-auto sm:-right-12' : '-left-12'} w-8 h-8 bg-secondary/80 backdrop-blur-sm rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-sm shadow-lg`}
+                        data-aos="zoom-in"
+                        data-aos-delay={index * 150 + 200}
+                        data-aos-duration="600"
+                      >
+                        {item.icon}
+                      </div>
+                      
+                      {/* Glass effect content card */}
+                      <div 
+                        className={`timeline-content p-6 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-500 group-hover:shadow-xl group-hover:bg-white/15 group-hover:border-secondary/40 ${item.side === 'left' ? 'sm:mr-2' : 'sm:ml-2'} ${window.innerWidth < 640 ? 'ml-4 opacity-0 translate-x-4' : ''}`}
+                        data-aos="fade-up"
+                        data-aos-delay={index * 150 + 100}
+                      >
+                        <h3 className="text-xl md:text-2xl font-bold text-primary mb-3">
+                          {item.year}
+                        </h3>
+                        <p className="text-base md:text-lg text-primary/90">
+                          {item.content}
+                        </p>
+                      </div>
+                      
+                      {/* Connector line on mobile */}
+                      <div className="absolute top-6 -left-8 w-8 h-px bg-white/30 sm:hidden"></div>
                     </div>
                   </div>
                 </div>
@@ -301,9 +362,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-
- 
-     
 
       <style jsx>{`
         @keyframes fade-in-down {
@@ -333,6 +391,20 @@ const AboutUs = () => {
           .timeline-entry:nth-child(even) {
             justify-content: flex-start;
             padding-left: 2rem;
+          }
+        }
+        @media (max-width: 639px) {
+          .timeline-entry {
+            justify-content: flex-start !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+          .timeline-year {
+            left: -3rem !important;
+            right: auto !important;
+          }
+          .timeline-content {
+            margin-left: 1rem;
           }
         }
       `}</style>

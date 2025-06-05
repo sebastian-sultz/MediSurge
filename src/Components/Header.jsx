@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { useUser } from '../UserContext';
 import { FaUser } from 'react-icons/fa';
-import { IoMdMail } from 'react-icons/io';
 
 const Header = () => {
   const { loggedInUser, setLoggedInUser } = useUser();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +17,20 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -52,7 +66,7 @@ const Header = () => {
     <header
       className={`fixed top-6 left-0 right-0 z-50 transition-all duration-300 `}
     >
-      <div className="mx-auto px-4 sm: max-w-7xl md:w-4/5 md:max-w-5xl ">
+      <div className="mx-auto px-4 sm:max-w-7xl md:w-4/5 md:max-w-5xl ">
         <div
           className={`flex items-center justify-between py-1 md:py-2 rounded-full px-2 md:px-3 backdrop-blur-md bg-[rgba(255,255,255,0.2)] shadow-md border border-border transition-all duration-300`}
         >
@@ -76,11 +90,12 @@ const Header = () => {
                 to={to}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${
+                  `flex items-center gap-2 text-sm font-medium transition-all duration-200 relative px-3 py-1 ${
                     isActive
                       ? 'text-accent font-semibold'
-                      : 'text-textSecondary hover:text-accent'
-                  } relative after:content-[""] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-center after:transition-transform after:duration-200 hover:after:scale-x-100`
+                      : 'text-primary hover:text-accent'
+                  } after:content-[""] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-accent after:to-accent2 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100 
+                  }`
                 }
               >
                 <svg
@@ -93,11 +108,13 @@ const Header = () => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-5 w-5 text-black"
+                  className={({ isActive }) =>
+                    `h-5 w-5 transition-transform ${isActive ? 'scale-110 text-accent' : 'text-primary'}`
+                  }
                 >
                   <path d={icon} />
                 </svg>
-                <span className="hidden text-black lg:inline">{label}</span>
+                <span className="hidden lg:inline">{label}</span>
               </NavLink>
             ))}
           </nav>
@@ -170,7 +187,7 @@ const Header = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-textSecondary"
+                className="text-primary"
               >
                 <path d="M1 1h15M1 7h15M1 13h15" />
               </svg>
@@ -181,7 +198,8 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <nav
-            className="md:hidden absolute top-full left-0 right-0 mt-2 w-[80%] mx-auto max-w-5xl p-4 bg-background/95 backdrop-blur-sm rounded-lg shadow-lg border border-border animate-slide-down"
+            ref={mobileMenuRef}
+            className="md:hidden absolute top-full left-0 right-0 mt-2 w-[80%] mx-auto max-w-5xl p-4 backdrop-blur-md bg-[rgba(255,255,255,0.2)] shadow-md border border-border rounded-lg animate-slide-down"
           >
             <div className="flex flex-col space-y-3">
               {navItems.map(({ to, label, icon }) => (
@@ -190,28 +208,34 @@ const Header = () => {
                   to={to}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) =>
-                    `flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    `group flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-all duration-200 relative ${
                       isActive
-                        ? 'text-accent bg-highlight font-semibold'
-                        : 'text-textSecondary hover:text-accent hover:bg-highlight'
-                    }`
+                        ? 'text-accent font-semibold'
+                        : 'text-primary hover:text-accent'
+                    } after:content-[""] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-accent after:to-accent2 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100`
                   }
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5 text-textSecondary"
-                  >
-                    <path d={icon} />
-                  </svg>
-                  {label}
+                  {({ isActive }) => (
+                    <>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={`h-5 w-5 transition-colors duration-200 ${
+                          isActive ? 'text-accent scale-110' : 'text-primary group-hover:text-accent'
+                        }`}
+                      >
+                        <path d={icon} />
+                      </svg>
+                      {label}
+                    </>
+                  )}
                 </NavLink>
               ))}
             </div>
