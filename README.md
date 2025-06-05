@@ -12,7 +12,6 @@
 - 🔁 React Router DOM
 - 🎨 React Icons
 - 📁 JSON-based dynamic content
-- 
 ---
 
 ## 🚀 Features
