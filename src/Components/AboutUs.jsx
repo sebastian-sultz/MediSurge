@@ -88,7 +88,7 @@ const AboutUs = () => {
   return (
     <div className="bg-background font-inter">
       {/* Hero Section */}
-      <section className="relative min-h-auto md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-surface to-background px-4 sm:px-6 md:px-12 lg:px-20 py-24">
+      <section className="relative min-h-auto lg:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-surface to-background px-4 sm:px-6 md:px-12 lg:px-20 py-24">
         <div className="absolute inset-0 z-0">
           <img
             src={aboutData.hero.image}

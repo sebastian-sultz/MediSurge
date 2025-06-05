@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <>
       <section
-        className="relative min-h-auto md:min-h-screen bg-cover bg-center flex items-center px-4 sm:px-6 md:px-12 lg:px-20 py-24"
+        className="relative min-h-auto lg:min-h-screen bg-cover bg-center flex items-center px-4 sm:px-6 md:px-12 lg:px-20 py-24"
         style={{ backgroundImage: `url(https://res.cloudinary.com/djjmj40t9/image/upload/f_auto,q_auto,dpr_auto/v1749065506/greyNext/julml07gj7cou7jpeec0.jpg)` }}
       >
 
