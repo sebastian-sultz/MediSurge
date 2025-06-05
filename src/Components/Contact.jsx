@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import contactData from "../Data/contactData.json"; // Import the JSON file
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -42,62 +43,37 @@ const ContactUs = () => {
           <div className="bg-surface p-6 md:p-8 rounded-2xl shadow-lg border border-border">
             <h2 className="text-2xl md:text-3xl font-bold text-text mb-6">Send Us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-textSecondary mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-full border border-text/40 focus:outline-none focus:ring-2 focus:ring-accent text-text bg-background"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-textSecondary mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your Email"
-                  className="w-full px-4 py-3 rounded-full border border-text/40 focus:outline-none focus:ring-2 focus:ring-accent text-text bg-background"
-                />
-              </div>
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-textSecondary mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Subject"
-                  className="w-full px-4 py-3 rounded-full border border-text/40 focus:outline-none focus:ring-2 focus:ring-accent text-text bg-background"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-textSecondary mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  rows="5"
-                  className="w-full px-4 py-3 rounded-2xl border border-text/40 focus:outline-none focus:ring-2 focus:ring-accent text-text bg-background"
-                ></textarea>
-              </div>
+              {contactData.formFields.map((field, index) => (
+                <div key={index}>
+                  <label
+                    htmlFor={field.name}
+                    className="block text-sm font-medium text-textSecondary mb-2"
+                  >
+                    {field.label}
+                  </label>
+                  {field.type === "textarea" ? (
+                    <textarea
+                      id={field.name}
+                      name={field.name}
+                      value={formData[field.name]}
+                      onChange={handleChange}
+                      placeholder={field.placeholder}
+                      rows={field.rows}
+                      className="w-full px-4 py-3 rounded-2xl border border-text/40 focus:outline-none focus:ring-2 focus:ring-accent text-text bg-background"
+                    ></textarea>
+                  ) : (
+                    <input
+                      type={field.type}
+                      id={field.name}
+                      name={field.name}
+                      value={formData[field.name]}
+                      onChange={handleChange}
+                      placeholder={field.placeholder}
+                      className="w-full px-4 py-3 rounded-full border border-text/40 focus:outline-none focus:ring-2 focus:ring-accent text-text bg-background"
+                    />
+                  )}
+                </div>
+              ))}
               {formStatus && (
                 <p
                   className={`text-sm ${
@@ -144,21 +120,21 @@ const ContactUs = () => {
                   <FaPhone className="text-2xl text-accent" />
                   <div>
                     <p className="text-sm font-medium text-textSecondary">Phone</p>
-                    <p className="text-base text-text">+1 (555) 123-4567</p>
+                    <p className="text-base text-text">{contactData.contactDetails.phone}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <FaEnvelope className="text-2xl text-accent" />
                   <div>
                     <p className="text-sm font-medium text-textSecondary">Email</p>
-                    <p className="text-base text-text">contact@medsupply.com</p>
+                    <p className="text-base text-text">{contactData.contactDetails.email}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <FaMapMarkerAlt className="text-2xl text-accent" />
                   <div>
                     <p className="text-sm font-medium text-textSecondary">Address</p>
-                    <p className="text-base text-text">123 Health St, Medical City, CA 90210</p>
+                    <p className="text-base text-text">{contactData.contactDetails.address}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -166,9 +142,14 @@ const ContactUs = () => {
                   <div>
                     <p className="text-sm font-medium text-textSecondary">Business Hours</p>
                     <p className="text-base text-text">
-                      Mon-Fri: 9:00 AM - 5:00 PM <br />
-                      Sat: 10:00 AM - 2:00 PM <br />
-                      Sun: Closed
+                      {Object.entries(contactData.contactDetails.businessHours).map(
+                        ([day, hours], index) => (
+                          <span key={index}>
+                            {day}: {hours}
+                            <br />
+                          </span>
+                        )
+                      )}
                     </p>
                   </div>
                 </div>

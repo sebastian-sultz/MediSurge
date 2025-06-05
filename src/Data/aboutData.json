@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "MedSupply Solutions",
+    "subtitle": "Trusted medical supplies for healthcare professionals",
+    "highlight": "medical supplies",
+    "image": "https://res.cloudinary.com/djjmj40t9/image/upload/f_auto,q_auto,dpr_auto/v1749065504/greyNext/yhsvmmtqwaswaydwvefb.jpg",
+    "cta": {
+      "text": "Our Story",
+      "link": "#our-journey"
+    }
+  },
+  "historyVisionMission": {
+    "history": {
+      "title": "Our History",
+      "content": "Founded in 2010, MedSupply Solutions began as a regional distributor and has grown into a national leader in medical surgical supplies."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To be the most trusted partner in healthcare supply chain solutions across North America."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To provide healthcare professionals with reliable, high-quality medical supplies through exceptional service."
+    }
+  },
+  "values": {
+    "title": "Our Core Values",
+    "items": [
+      {
+        "title": "Quality",
+        "content": "We maintain the highest standards for all our medical products, ensuring safety and reliability.",
+        "icon": "check-circle"
+      },
+      {
+        "title": "Reliability",
+        "content": "Healthcare providers trust us for on-time delivery of critical supplies when they're needed most.",
+        "icon": "clock"
+      },
+      {
+        "title": "Partnership",
+        "content": "We build long-term relationships with healthcare providers, understanding their unique needs.",
+        "icon": "users"
+      }
+    ]
+  },
+  "commitment": {
+    "title": "Our Commitment to Healthcare",
+    "subtitle": "What makes us different in medical supply distribution",
+    "sections": [
+      {
+        "title": "Quality Assurance",
+        "content": "We source only from certified manufacturers and maintain rigorous quality control.",
+        "items": [
+          "FDA-approved products",
+          "Sterilization compliance",
+          "Batch tracking system"
+        ]
+      },
+      {
+        "title": "Reliable Distribution",
+        "content": "Our logistics network ensures timely delivery to healthcare facilities nationwide.",
+        "items": [
+          "24/7 emergency orders",
+          "Temperature-controlled transport",
+          "Real-time tracking"
+        ]
+      }
+    ]
+  },
+  "timeline": {
+    "title": "Our Growth Journey",
+    "subtitle": "Milestones that shaped our company's success story",
+    "items": [
+      {
+        "year": "2010",
+        "content": "Founded as a regional medical supplier in Chicago.",
+        "side": "left",
+        "icon": "🏥",
+        "animation": "fade-right"
+      },
+      {
+        "year": "2014",
+        "content": "Expanded to serve the entire Midwest region.",
+        "side": "right",
+        "icon": "🗺️",
+        "animation": "fade-left"
+      },
+      {
+        "year": "2017",
+        "content": "Launched our e-commerce platform for healthcare providers.",
+        "side": "left",
+        "icon": "🛒",
+        "animation": "fade-right"
+      },
+      {
+        "year": "2020",
+        "content": "Achieved nationwide distribution capabilities.",
+        "side": "right",
+        "icon": "🇺🇸",
+        "animation": "fade-left"
+      },
+      {
+        "year": "2023",
+        "content": "Opened two new distribution centers on East and West coasts.",
+        "side": "left",
+        "icon": "🏗️",
+        "animation": "fade-right"
+      }
+    ]
+  }
+}

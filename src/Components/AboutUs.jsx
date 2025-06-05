@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import aboutData from "../Data/aboutData.json"
 
 const AboutUs = () => {
   const timelineRef = useRef(null);
@@ -58,13 +59,39 @@ const AboutUs = () => {
     };
   }, []);
 
+  // Helper function to render icon SVG
+  const renderIcon = (iconName) => {
+    switch (iconName) {
+      case 'check-circle':
+        return (
+          <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        );
+      case 'clock':
+        return (
+          <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        );
+      case 'users':
+        return (
+          <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="bg-background font-inter">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-surface to-background px-4 sm:px-6 md:px-12 lg:px-20 py-24">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://res.cloudinary.com/djjmj40t9/image/upload/f_auto,q_auto,dpr_auto/v1749065504/greyNext/yhsvmmtqwaswaydwvefb.jpg"
+            src={aboutData.hero.image}
             alt="Medical equipment"
             className="w-full h-full object-cover opacity-50"
             loading="eager"
@@ -77,24 +104,25 @@ const AboutUs = () => {
             <div className="overflow-hidden">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-text mb-4 leading-tight">
                 <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                  MedSupply Solutions
+                  {aboutData.hero.title}
                 </span>
               </h1>
             </div>
             <div className="relative inline-block max-w-2xl mx-auto">
               <p className="text-lg sm:text-xl md:text-2xl text-textSecondary leading-relaxed relative z-10 px-4 py-2 sm:px-6 sm:py-3">
                 Trusted <span className="font-semibold text-secondary">medical supplies</span> for healthcare professionals
+               
               </p>
               <div className="absolute inset-0 border-2 border-border rounded-full"></div>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-fit mx-auto">
             <a
-              href="#our-journey"
+              href={aboutData.hero.cta.link}
               className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-primary to-secondary text-background font-semibold rounded-full hover:shadow-lg transition-all group relative overflow-hidden w-full sm:w-auto"
             >
               <span className="relative z-10 flex items-center text-sm sm:text-base">
-                Our Story
+                {aboutData.hero.cta.text}
                 <svg
                   className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -129,21 +157,21 @@ const AboutUs = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-sterile p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-            <h2 className="text-xl md:text-2xl font-bold text-text mb-4">Our History</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-text mb-4">{aboutData.historyVisionMission.history.title}</h2>
             <p className="text-textSecondary leading-relaxed text-sm md:text-base">
-              Founded in 2010, MedSupply Solutions began as a regional distributor and has grown into a national leader in medical surgical supplies.
+              {aboutData.historyVisionMission.history.content}
             </p>
           </div>
           <div className="bg-sterile p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-            <h2 className="text-xl md:text-2xl font-bold text-text mb-4">Our Vision</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-text mb-4">{aboutData.historyVisionMission.vision.title}</h2>
             <p className="text-textSecondary leading-relaxed text-sm md:text-base">
-              To be the most trusted partner in healthcare supply chain solutions across North America.
+              {aboutData.historyVisionMission.vision.content}
             </p>
           </div>
           <div className="bg-sterile p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-            <h2 className="text-xl md:text-2xl font-bold text-text mb-4">Our Mission</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-text mb-4">{aboutData.historyVisionMission.mission.title}</h2>
             <p className="text-textSecondary leading-relaxed text-sm md:text-base">
-              To provide healthcare professionals with reliable, high-quality medical supplies through exceptional service.
+              {aboutData.historyVisionMission.mission.content}
             </p>
           </div>
         </div>
@@ -152,41 +180,19 @@ const AboutUs = () => {
       {/* Values Section */}
       <div className="bg-background py-16">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-text text-center mb-12">Our Core Values</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-text text-center mb-12">{aboutData.values.title}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="text-center p-6 rounded-xl bg-gradient-to-b from-surface to-background hover:shadow-lg transition-all">
-              <div className="bg-border w-14 h-14 rounded-full mx-auto flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            {aboutData.values.items.map((value, index) => (
+              <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-b from-surface to-background hover:shadow-lg transition-all">
+                <div className="bg-border w-14 h-14 rounded-full mx-auto flex items-center justify-center mb-4">
+                  {renderIcon(value.icon)}
+                </div>
+                <h3 className="text-lg md:text-xl font-semibold text-text mb-2">{value.title}</h3>
+                <p className="text-textSecondary text-sm md:text-base">
+                  {value.content}
+                </p>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-text mb-2">Quality</h3>
-              <p className="text-textSecondary text-sm md:text-base">
-                We maintain the highest standards for all our medical products, ensuring safety and reliability.
-              </p>
-            </div>
-            <div className="text-center p-6 rounded-xl bg-gradient-to-b from-surface to-background hover:shadow-lg transition-all">
-              <div className="bg-border w-14 h-14 rounded-full mx-auto flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg md:text-xl font-semibold text-text mb-2">Reliability</h3>
-              <p className="text-textSecondary text-sm md:text-base">
-                Healthcare providers trust us for on-time delivery of critical supplies when they're needed most.
-              </p>
-            </div>
-            <div className="text-center p-6 rounded-xl bg-gradient-to-b from-surface to-background hover:shadow-lg transition-all">
-              <div className="bg-border w-14 h-14 rounded-full mx-auto flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg md:text-xl font-semibold text-text mb-2">Partnership</h3>
-              <p className="text-textSecondary text-sm md:text-base">
-                We build long-term relationships with healthcare providers, understanding their unique needs.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -195,66 +201,31 @@ const AboutUs = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Our Commitment to Healthcare</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">{aboutData.commitment.title}</h2>
             <p className="text-lg md:text-xl text-textSecondary">
-              What makes us different in medical supply distribution
+              {aboutData.commitment.subtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div className="bg-surface p-6 rounded-xl">
-              <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">Quality Assurance</h3>
-              <p className="text-textSecondary mb-4 text-sm md:text-base">
-                We source only from certified manufacturers and maintain rigorous quality control.
-              </p>
-              <ul className="space-y-2 text-sm md:text-base">
-                <li className="flex items-start">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-success mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>FDA-approved products</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-success mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>Sterilization compliance</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-success mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>Batch tracking system</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-surface p-6 rounded-xl">
-              <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">Reliable Distribution</h3>
-              <p className="text-textSecondary mb-4 text-sm md:text-base">
-                Our logistics network ensures timely delivery to healthcare facilities nationwide.
-              </p>
-              <ul className="space-y-2 text-sm md:text-base">
-                <li className="flex items-start">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-secondary mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>24/7 emergency orders</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-secondary mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>Temperature-controlled transport</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-secondary mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>Real-time tracking</span>
-                </li>
-              </ul>
-            </div>
+            {aboutData.commitment.sections.map((section, index) => (
+              <div key={index} className="bg-surface p-6 rounded-xl">
+                <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">{section.title}</h3>
+                <p className="text-textSecondary mb-4 text-sm md:text-base">
+                  {section.content}
+                </p>
+                <ul className="space-y-2 text-sm md:text-base">
+                  {section.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="flex items-start">
+                      <svg className="w-4 h-4 md:w-5 md:h-5 text-success mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -264,10 +235,10 @@ const AboutUs = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 md:mb-20" data-aos="fade-down" data-aos-duration="800">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text mb-4">
-              Our Growth Journey
+              {aboutData.timeline.title}
             </h2>
             <p className="text-lg md:text-xl text-textSecondary max-w-2xl mx-auto">
-              Milestones that shaped our company's success story
+              {aboutData.timeline.subtitle}
             </p>
           </div>
 
@@ -280,43 +251,7 @@ const AboutUs = () => {
             </div>
             
             <div className="space-y-16 ml-12 sm:ml-0">
-              {[
-                { 
-                  year: "2010", 
-                  content: "Founded as a regional medical supplier in Chicago.",
-                  side: "left",
-                  icon: "🏥",
-                  animation: "fade-right"
-                },
-                { 
-                  year: "2014", 
-                  content: "Expanded to serve the entire Midwest region.",
-                  side: "right",
-                  icon: "🗺️",
-                  animation: "fade-left"
-                },
-                { 
-                  year: "2017", 
-                  content: "Launched our e-commerce platform for healthcare providers.",
-                  side: "left",
-                  icon: "🛒",
-                  animation: "fade-right"
-                },
-                { 
-                  year: "2020", 
-                  content: "Achieved nationwide distribution capabilities.",
-                  side: "right",
-                  icon: "🇺🇸",
-                  animation: "fade-left"
-                },
-                { 
-                  year: "2023", 
-                  content: "Opened two new distribution centers on East and West coasts.",
-                  side: "left",
-                  icon: "🏗️",
-                  animation: "fade-right"
-                },
-              ].map((item, index) => (
+              {aboutData.timeline.items.map((item, index) => (
                 <div
                   key={index}
                   className={`timeline-entry relative flex ${window.innerWidth < 640 ? 'justify-start' : item.side === 'left' ? 'sm:justify-end sm:pr-10 lg:pr-16' : 'sm:justify-start sm:pl-10 lg:pl-16'}`}
@@ -363,6 +298,7 @@ const AboutUs = () => {
         </div>
       </div>
 
+      {/* Styles remain the same */}
       <style jsx>{`
         @keyframes fade-in-down {
           from { opacity: 0; transform: translateY(-10px); }

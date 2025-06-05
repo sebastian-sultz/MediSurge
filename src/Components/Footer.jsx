@@ -1,6 +1,14 @@
 import React from "react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import footerData from "../Data/footerData.json";
+
+// Icon mapping from JSON string to actual component
+const iconMap = {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+};
 
 const Footer = () => {
   const policyLinks = [
@@ -12,12 +20,6 @@ const Footer = () => {
   const quickLinks = [
     { to: "/aboutUs", label: "About Us" },
     { to: "/contact", label: "Contact Us" },
-  ];
-
-  const contactDetails = [
-    { icon: FaPhone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: FaEnvelope, label: "Email", value: "contact@medsupply.com", href: "mailto:contact@medsupply.com" },
-    { icon: FaMapMarkerAlt, label: "Address", value: "123 Health St, Medical City, CA 90210" },
   ];
 
   return (
@@ -39,7 +41,7 @@ const Footer = () => {
             </p>
           </div>
 
-        {/* Quick Links */}
+          {/* Quick Links */}
           <div className="flex flex-col items-start">
             <h3 className="text-lg font-bold text-sterile mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -73,27 +75,28 @@ const Footer = () => {
             </ul>
           </div>
 
-         
-
           {/* Contact Details */}
           <div className="flex flex-col items-start md:items-start">
             <h3 className="text-lg font-bold text-sterile mb-4">Contact Us</h3>
             <div className="space-y-4">
-              {contactDetails.map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flex items-center gap-3 group">
-                  <Icon className="text-2xl text-accent group-hover:text-accent2 transition-colors animate-pulse" />
-                  <div>
-                    <p className="text-sm font-medium text-sterile/80">{label}</p>
-                    {href ? (
-                      <a href={href} className="text-base text-sterile hover:text-accent transition-colors">
-                        {value}
-                      </a>
-                    ) : (
-                      <p className="text-base text-sterile">{value}</p>
-                    )}
+              {footerData.contactDetails.map(({ icon, label, value, href }) => {
+                const Icon = iconMap[icon];
+                return (
+                  <div key={label} className="flex items-center gap-3 group">
+                    {Icon && <Icon className="text-2xl text-accent group-hover:text-accent2 transition-colors animate-pulse" />}
+                    <div>
+                      <p className="text-sm font-medium text-sterile/80">{label}</p>
+                      {href ? (
+                        <a href={href} className="text-base text-sterile hover:text-accent transition-colors">
+                          {value}
+                        </a>
+                      ) : (
+                        <p className="text-base text-sterile">{value}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
