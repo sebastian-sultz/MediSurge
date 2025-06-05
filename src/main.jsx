@@ -9,7 +9,6 @@ import Home from './Components/Home.jsx'
 import Error from './Components/Error.jsx'
 import Login from './Components/Login.jsx'
 import Signup from './Components/Signup.jsx'
-import reportWebVitals from './reportWebVitals';
 import AboutUs from './Components/AboutUs.jsx'
 import ContactUs from './Components/Contact.jsx';
 import TermsAndConditions from './Components/TermsAndConditions.jsx';
@@ -75,4 +74,4 @@ createRoot(document.getElementById('root')).render(
 
 
 
-reportWebVitals();
+

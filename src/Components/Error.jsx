@@ -96,7 +96,7 @@ const Error = () => {
         {/* Support contact */}
         <div className="mt-8 text-sm text-textSecondary">
           <p>Need immediate assistance?</p>
-          <a 
+          <a s
             href="mailto:support@medsupply.com" 
             className="text-secondary hover:underline inline-flex items-center mt-1"
           >

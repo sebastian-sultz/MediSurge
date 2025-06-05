@@ -1,9 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-// Create context
 const UserContext = createContext();
 
-// Create a provider component
 export const UserProvider = ({ children }) => {
     const [loggedInUser, setLoggedInUser] = useState(null);
 
@@ -22,8 +20,6 @@ export const UserProvider = ({ children }) => {
     );
 };
 
-// Custom hook to use the context
-// eslint-disable-next-line react-refresh/only-export-components
 export const useUser = () => {
     return useContext(UserContext);
 };
