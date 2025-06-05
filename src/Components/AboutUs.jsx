@@ -111,7 +111,7 @@ const AboutUs = () => {
             <div className="relative inline-block max-w-2xl mx-auto">
               <p className="text-lg sm:text-xl md:text-2xl text-textSecondary leading-relaxed relative z-10 px-4 py-2 sm:px-6 sm:py-3">
                 Trusted <span className="font-semibold text-secondary">medical supplies</span> for healthcare professionals
-               
+
               </p>
               <div className="absolute inset-0 border-2 border-border rounded-full"></div>
             </div>
@@ -245,11 +245,11 @@ const AboutUs = () => {
           <div className="relative max-w-5xl mx-auto" ref={timelineRef}>
             {/* Timeline line */}
             <div className="absolute left-4 sm:left-1/2 h-full w-1 bg-border/30 sm:transform sm:-translate-x-1/2">
-              <div 
+              <div
                 className="timeline-progress absolute top-0 left-0 w-full h-full origin-top bg-secondary scale-y-0"
               ></div>
             </div>
-            
+
             <div className="space-y-16 ml-12 sm:ml-0">
               {aboutData.timeline.items.map((item, index) => (
                 <div
@@ -264,7 +264,7 @@ const AboutUs = () => {
                   <div className={`w-full sm:w-5/6 lg:w-1/2 ${item.side === 'left' ? 'sm:text-right' : 'sm:text-left'}`}>
                     <div className="relative group">
                       {/* Year marker */}
-                      <div 
+                      <div
                         className={`timeline-year absolute top-5 ${window.innerWidth < 640 ? '-left-12' : item.side === 'left' ? 'sm:left-auto sm:-right-12' : '-left-12'} w-8 h-8 bg-secondary/80 backdrop-blur-sm rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-sm shadow-lg`}
                         data-aos="zoom-in"
                         data-aos-delay={index * 150 + 200}
@@ -272,9 +272,9 @@ const AboutUs = () => {
                       >
                         {item.icon}
                       </div>
-                      
+
                       {/* Glass effect content card */}
-                      <div 
+                      <div
                         className={`timeline-content p-6 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-500 group-hover:shadow-xl group-hover:bg-white/15 group-hover:border-secondary/40 ${item.side === 'left' ? 'sm:mr-2' : 'sm:ml-2'} ${window.innerWidth < 640 ? 'ml-4 opacity-0 translate-x-4' : ''}`}
                         data-aos="fade-up"
                         data-aos-delay={index * 150 + 100}
@@ -286,7 +286,7 @@ const AboutUs = () => {
                           {item.content}
                         </p>
                       </div>
-                      
+
                       {/* Connector line on mobile */}
                       <div className="absolute top-6 -left-8 w-8 h-px bg-white/30 sm:hidden"></div>
                     </div>

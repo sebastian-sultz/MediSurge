@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
     <section className="font-inter pt-24 pb-16 bg-gradient-to-br from-surface to-background px-4 sm:px-6 md:px-12 lg:px-20">
       <div className="container mx-auto max-w-4xl relative">
 
-         <div className="relative mb-12 animate-fade-in">
+        <div className="relative mb-12 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-text text-center drop-shadow-2xl">
             Privacy <span className="text-accent">Policy</span>
           </h1>
@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
           </p>
           <div className="absolute -bottom-4 left-0 w-24 h-1 bg-gradient-to-r from-accent to-accent3"></div>
         </div>
-        
+
 
         <div className="space-y-12">
           {/* Data Collection and Usage */}

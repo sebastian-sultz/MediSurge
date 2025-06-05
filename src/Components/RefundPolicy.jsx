@@ -4,8 +4,8 @@ const RefundPolicy = () => {
   return (
     <section className="font-inter pt-24 pb-16 bg-gradient-to-br from-surface to-background px-4 sm:px-6 md:px-12 lg:px-20">
       <div className="container mx-auto max-w-4xl relative">
-      
-          <div className="relative mb-12 animate-fade-in">
+
+        <div className="relative mb-12 animate-fade-in">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-text text-center drop-shadow-2xl">
             Refund <span className="text-accent">Policy</span>
           </h1>

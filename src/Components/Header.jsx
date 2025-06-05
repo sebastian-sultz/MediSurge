@@ -90,10 +90,9 @@ const Header = () => {
                 to={to}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-2 text-sm font-medium transition-all duration-200 relative px-3 py-1 ${
-                    isActive
-                      ? 'text-accent font-semibold'
-                      : 'text-primary hover:text-accent'
+                  `flex items-center gap-2 text-sm font-medium transition-all duration-200 relative px-3 py-1 ${isActive
+                    ? 'text-accent font-semibold'
+                    : 'text-primary hover:text-accent'
                   } after:content-[""] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-accent after:to-accent2 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100 
                   }`
                 }
@@ -208,10 +207,9 @@ const Header = () => {
                   to={to}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) =>
-                    `group flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-all duration-200 relative ${
-                      isActive
-                        ? 'text-accent font-semibold'
-                        : 'text-primary hover:text-accent'
+                    `group flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-all duration-200 relative ${isActive
+                      ? 'text-accent font-semibold'
+                      : 'text-primary hover:text-accent'
                     } after:content-[""] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-accent after:to-accent2 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100`
                   }
                 >
@@ -227,9 +225,8 @@ const Header = () => {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className={`h-5 w-5 transition-colors duration-200 ${
-                          isActive ? 'text-accent scale-110' : 'text-primary group-hover:text-accent'
-                        }`}
+                        className={`h-5 w-5 transition-colors duration-200 ${isActive ? 'text-accent scale-110' : 'text-primary group-hover:text-accent'
+                          }`}
                       >
                         <path d={icon} />
                       </svg>

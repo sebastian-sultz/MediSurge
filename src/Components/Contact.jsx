@@ -76,9 +76,8 @@ const ContactUs = () => {
               ))}
               {formStatus && (
                 <p
-                  className={`text-sm ${
-                    formStatus.type === "success" ? "text-success" : "text-error"
-                  } text-center`}
+                  className={`text-sm ${formStatus.type === "success" ? "text-success" : "text-error"
+                    } text-center`}
                 >
                   {formStatus.message}
                 </p>

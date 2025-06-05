@@ -10,19 +10,19 @@ const Hero = () => {
         className="relative min-h-screen bg-cover bg-center flex items-center px-4 sm:px-6 md:px-12 lg:px-20 py-24"
         style={{ backgroundImage: `url(https://res.cloudinary.com/djjmj40t9/image/upload/f_auto,q_auto,dpr_auto/v1749065506/greyNext/julml07gj7cou7jpeec0.jpg)` }}
       >
-        {/* Overlay */}
+
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-primary/20 z-0"></div>
 
-        {/* Content */}
+
         <div className="relative z-10 text-white space-y-10 max-w-6xl w-full">
           <div className="space-y-6 text-center md:text-left">
-            {/* Badge */}
+
             <div className="inline-flex items-center gap-2 bg-white/20 text-sm uppercase font-semibold px-4 py-1 rounded-full backdrop-blur-md w-max mx-auto md:mx-0">
               <FaHeartbeat className="animate-pulse" />
               Trusted by Healthcare Experts
             </div>
 
-            {/* Title */}
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-2xl">
               Precision Surgical Goods <br className="hidden sm:inline" />
               For <span className="text-accent">Modern Healthcare</span>
